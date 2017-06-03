@@ -44,6 +44,11 @@ app.get('/', (req, res) => {
         const imageListMatches = response.body.match(/imgList = (\[.*\])/);
         const imageList = JSON.parse(imageListMatches[1])
 
+        const map = $('#map');
+        const latitude = map.attr('data-latitude');
+        const longitude = map.attr('data-longitude');
+        const location = {latitude, longitude};
+
         res.status(200).json({
             title,
             numBedrooms,
@@ -54,6 +59,7 @@ app.get('/', (req, res) => {
             attributes,
             description,
             imageList,
+            location,
         });
     });
 });
