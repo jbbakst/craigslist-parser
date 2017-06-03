@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
         const numBedrooms = parseFloat($(bedBathAttributes[0]).text(), 10);
         const numBathrooms = parseFloat($(bedBathAttributes[2]).text(), 10);
 
-        const sqFeet = $(attributeElements[1].children[0]).text()
+        const sqFeet = parseFloat($(attributeElements[1].children[0]).text(), 10);
 
         const priceText = $('span.price').text();
         const price = parseFloat(priceText.substr(1), 10);
