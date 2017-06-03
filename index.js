@@ -31,7 +31,8 @@ app.get('/', (req, res) => {
 
         const sqFeet = $(attributeElements[1].children[0]).text()
 
-        const price = $('span.price').text();
+        const priceText = $('span.price').text();
+        const price = parseFloat(priceText.substr(1), 10);
 
         const neighborhoodString = $($('small')[0]).text().trim();
         const neighborhood = neighborhoodString.substr(1, neighborhoodString.length - 2);
